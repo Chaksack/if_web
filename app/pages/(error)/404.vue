@@ -1,14 +1,14 @@
 <script setup>
 definePageMeta({
-  layout: 'blank',
+  layout: 'default',
 })
 
 const router = useRouter()
 </script>
 
 <template>
-  <div class="h-svh">
-    <div class="m-auto h-full w-full flex flex-col items-center justify-center gap-2">
+  <div class="py-24">
+    <div class="mx-auto max-w-7xl px-6 flex flex-col items-center justify-center gap-2">
       <h1 class="text-[7rem] font-bold leading-tight">
         404
       </h1>

@@ -1,4 +1,5 @@
 <script setup>
+import LiveChat from '~/components/ui/live-chat/LiveChat.vue'
 </script>
 
 <template>
@@ -6,6 +7,7 @@
     <Navbar />
     <slot />
     <Footer />
+    <LiveChat />
   </div>
 </template>
 

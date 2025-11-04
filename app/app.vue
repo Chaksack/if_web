@@ -1,6 +1,11 @@
 <template>
     <NuxtLayout>
-    <NuxtLoadingIndicator />
-    <NuxtPage />
+        <NuxtLoadingIndicator />
+        <NuxtPage />
     </NuxtLayout>
+    <Toaster richColors position="top-right" />
 </template>
+
+<script setup>
+import { Toaster } from 'vue-sonner'
+</script>

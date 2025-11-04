@@ -5,41 +5,41 @@
         <div>
           <h3 class="mb-4 text-[12px] font-semibold uppercase tracking-wide text-gray-700">Personal Banking</h3>
           <ul class="space-y-2 text-[13px] text-gray-600">
-            <li><a href="#" class="hover:text-gray-900">Personal Checking</a></li>
-            <li><a href="#" class="hover:text-gray-900">Personal Savings</a></li>
-            <li><a href="#" class="hover:text-gray-900">Personal Mortgages</a></li>
-            <li><a href="#" class="hover:text-gray-900">Personal Loans</a></li>
-            <li><a href="#" class="hover:text-gray-900">Personal Banking</a></li>
+            <li><NuxtLink to="/loans/personal" class="hover:text-gray-900">Personal Loans</NuxtLink></li>
+            <li><NuxtLink to="/loans/home" class="hover:text-gray-900">Home Loans</NuxtLink></li>
+            <li><NuxtLink to="/loans/auto" class="hover:text-gray-900">Auto Loans</NuxtLink></li>
+            <li><NuxtLink to="/loans/education" class="hover:text-gray-900">Education Loans</NuxtLink></li>
+            <li><NuxtLink to="/credit-cards" class="hover:text-gray-900">Credit Cards</NuxtLink></li>
           </ul>
         </div>
         <div>
           <h3 class="mb-4 text-[12px] font-semibold uppercase tracking-wide text-gray-700">Business Banking</h3>
           <ul class="space-y-2 text-[13px] text-gray-600">
-            <li><a href="#" class="hover:text-gray-900">Business Checking</a></li>
-            <li><a href="#" class="hover:text-gray-900">Business Loans</a></li>
-            <li><a href="#" class="hover:text-gray-900">Small Business Administration</a></li>
-            <li><a href="#" class="hover:text-gray-900">Banking Additional Services</a></li>
-            <li><a href="#" class="hover:text-gray-900">E-Banking</a></li>
+            <li><NuxtLink to="/loans/business" class="hover:text-gray-900">Business Loans</NuxtLink></li>
+            <li><NuxtLink to="/loans/equipment" class="hover:text-gray-900">Equipment Financing</NuxtLink></li>
+            <li><a href="#" class="hover:text-gray-900">Business Accounts</a></li>
+            <li><a href="#" class="hover:text-gray-900">Merchant Services</a></li>
+            <li><a href="#" class="hover:text-gray-900">Business Banking</a></li>
           </ul>
         </div>
         <div>
-          <h3 class="mb-4 text-[12px] font-semibold uppercase tracking-wide text-gray-700">Quick Links</h3>
+          <h3 class="mb-4 text-[12px] font-semibold uppercase tracking-wide text-gray-700">Support</h3>
           <ul class="space-y-2 text-[13px] text-gray-600">
-            <li><a href="#" class="hover:text-gray-900">About Innovative Finance</a></li>
-            <li><a href="#" class="hover:text-gray-900">Innovative Finance Services</a></li>
-            <li><a href="#" class="hover:text-gray-900">Credit Cards</a></li>
-            <li><a href="#" class="hover:text-gray-900">Careers</a></li>
-            <li><a href="#" class="hover:text-gray-900">Contacts</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="mb-4 text-[12px] font-semibold uppercase tracking-wide text-gray-700">News & Blog</h3>
-          <ul class="space-y-2 text-[13px] text-gray-600">
-            <li><a href="#" class="hover:text-gray-900">Recent News</a></li>
-            <li><a href="#" class="hover:text-gray-900">Bank News</a></li>
-            <li><a href="#" class="hover:text-gray-900">Careers Blog</a></li>
-            <li><a href="#" class="hover:text-gray-900">Tips & Guides</a></li>
+            <li><NuxtLink to="/help-support" class="hover:text-gray-900">Help & Support</NuxtLink></li>
+            <li><NuxtLink to="/contact" class="hover:text-gray-900">Contact Us</NuxtLink></li>
+            <li><NuxtLink to="/careers" class="hover:text-gray-900">Careers</NuxtLink></li>
+            <li><a href="#" class="hover:text-gray-900">Branch Locator</a></li>
             <li><a href="#" class="hover:text-gray-900">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-4 text-[12px] font-semibold uppercase tracking-wide text-gray-700">Resources</h3>
+          <ul class="space-y-2 text-[13px] text-gray-600">
+            <li><NuxtLink to="/news" class="hover:text-gray-900">News & Updates</NuxtLink></li>
+            <li><NuxtLink to="/features" class="hover:text-gray-900">Features</NuxtLink></li>
+            <li><a href="#" class="hover:text-gray-900">Financial Tips</a></li>
+            <li><a href="#" class="hover:text-gray-900">Blog</a></li>
+            <li><a href="#" class="hover:text-gray-900">Media Center</a></li>
           </ul>
         </div>
       </div>
@@ -64,10 +64,10 @@
           <div>
             <h4 class="text-[12px] font-semibold uppercase tracking-wide text-gray-200">Customer Service</h4>
             <ul class="mt-3 space-y-2 text-[13px]">
-              <li><a class="hover:text-white" href="#">About us</a></li>
-              <li><a class="hover:text-white" href="#">Jobs</a></li>
-              <li><a class="hover:text-white" href="#">Press and media</a></li>
-              <li><a class="hover:text-white" href="#">Contact us</a></li>
+              <li><NuxtLink class="hover:text-white" to="/help-support">Help & Support</NuxtLink></li>
+              <li><NuxtLink class="hover:text-white" to="/contact">Contact Us</NuxtLink></li>
+              <li><NuxtLink class="hover:text-white" to="/careers">Careers</NuxtLink></li>
+              <li><a class="hover:text-white" href="#">Branch Locations</a></li>
             </ul>
           </div>
           <div>
@@ -82,13 +82,21 @@
           <div>
             <h4 class="text-[12px] font-semibold uppercase tracking-wide text-gray-200">Legal</h4>
             <ul class="mt-3 space-y-2 text-[13px]">
-              <li><a class="hover:text-white" href="#">Privacy Policy</a></li>
-              <li><a class="hover:text-white" href="#">Terms & Conditions</a></li>
+              <li><NuxtLink class="hover:text-white" to="/privacy-policy">Privacy Policy</NuxtLink></li>
+              <li><NuxtLink class="hover:text-white" to="/terms-conditions">Terms & Conditions</NuxtLink></li>
+              <li><NuxtLink class="hover:text-white" to="/help-support">Help & Support</NuxtLink></li>
             </ul>
           </div>
         </div>
         <div class="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-gray-800 pt-6 text-[11px] text-gray-400">
-          <span>About Bank · Services · Credit Cards · Careers · Blog · Contacts</span>
+          <div class="space-x-2">
+            <NuxtLink to="/credit-cards" class="hover:text-gray-300">Credit Cards</NuxtLink>·
+            <NuxtLink to="/careers" class="hover:text-gray-300">Careers</NuxtLink>·
+            <NuxtLink to="/contact" class="hover:text-gray-300">Contact</NuxtLink>·
+            <NuxtLink to="/help-support" class="hover:text-gray-300">Help & Support</NuxtLink>·
+            <NuxtLink to="/privacy-policy" class="hover:text-gray-300">Privacy</NuxtLink>·
+            <NuxtLink to="/terms-conditions" class="hover:text-gray-300">Terms</NuxtLink>
+          </div>
           <span>Innovative Finance © 2025 · All Rights Reserved</span>
         </div>
       </div>
