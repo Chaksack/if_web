@@ -1,4 +1,15 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'auth',
+})
+
+// Fetch user data on layout mount
+const { getMe, user } = useAuth()
+onMounted(async () => {
+  if (!user.value) {
+    await getMe()
+  }
+})
 </script>
 
 <template>
@@ -12,7 +23,3 @@
     </SidebarInset>
   </SidebarProvider>
 </template>
-
-<style scoped>
-
-</style>

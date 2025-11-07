@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from "vue"
+import { cn } from "@/lib/utils"
 
 const props = defineProps<{
   class?: HTMLAttributes["class"]
@@ -7,11 +8,10 @@ const props = defineProps<{
 </script>
 
 <template>
-  <nav
-    aria-label="breadcrumb"
-    data-slot="breadcrumb"
-    :class="props.class"
+  <li
+    data-slot="breadcrumb-item"
+    :class="cn('inline-flex items-center gap-1.5', props.class)"
   >
     <slot />
-  </nav>
+  </li>
 </template>
