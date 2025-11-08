@@ -17,7 +17,7 @@
           <ul class="space-y-2 text-[13px] text-gray-600">
             <li><NuxtLink to="/loans/business" class="hover:text-gray-900">Business Loans</NuxtLink></li>
             <li><NuxtLink to="/loans/equipment" class="hover:text-gray-900">Equipment Financing</NuxtLink></li>
-            <li><a href="#" class="hover:text-gray-900">Business Accounts</a></li>
+            <li><NuxtLink to="/open-account" class="hover:text-gray-900">Business Accounts</NuxtLink></li>
             <li><a href="#" class="hover:text-gray-900">Merchant Services</a></li>
             <li><a href="#" class="hover:text-gray-900">Business Banking</a></li>
           </ul>
@@ -28,8 +28,8 @@
             <li><NuxtLink to="/help-support" class="hover:text-gray-900">Help & Support</NuxtLink></li>
             <li><NuxtLink to="/contact" class="hover:text-gray-900">Contact Us</NuxtLink></li>
             <li><NuxtLink to="/careers" class="hover:text-gray-900">Careers</NuxtLink></li>
-            <li><a href="#" class="hover:text-gray-900">Branch Locator</a></li>
-            <li><a href="#" class="hover:text-gray-900">FAQs</a></li>
+            <li><NuxtLink to="/branch-locator" class="hover:text-gray-900">Branch Locator</NuxtLink></li>
+            <li><NuxtLink to="/help-support" class="hover:text-gray-900">FAQs</NuxtLink></li>
           </ul>
         </div>
         <div>
@@ -67,7 +67,7 @@
               <li><NuxtLink class="hover:text-white" to="/help-support">Help & Support</NuxtLink></li>
               <li><NuxtLink class="hover:text-white" to="/contact">Contact Us</NuxtLink></li>
               <li><NuxtLink class="hover:text-white" to="/careers">Careers</NuxtLink></li>
-              <li><a class="hover:text-white" href="#">Branch Locations</a></li>
+              <li><NuxtLink class="hover:text-white" to="/branch-locator">Branch Locations</NuxtLink></li>
             </ul>
           </div>
           <div>

@@ -43,7 +43,9 @@
                     </div>
                   </div>
                   <div class="mt-4">
-                    <BalanceChart :transactions="transactions" />
+                    <ClientOnly>
+                      <BalanceChart :transactions="transactions" />
+                    </ClientOnly>
                   </div>
 
                   <div class="mt-6 flex gap-2">
@@ -83,6 +85,8 @@
                   <h3 class="font-semibold">Transactions</h3>
                   <div class="text-sm text-gray-500">Quick filters</div>
                 </div>
+              </div>
+
               <div class="bg-white p-6 rounded shadow">
                 <h3 class="font-semibold mb-4">Recent activity</h3>
                 <div class="mb-4 grid grid-cols-1 sm:grid-cols-4 gap-2 items-end">

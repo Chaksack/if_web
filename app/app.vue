@@ -2,7 +2,7 @@
 import { Toaster } from 'vue-sonner'
 import { ConfigProvider } from 'reka-ui'
 
-const title = 'Admin Dashboard - Innovative Finance'
+const title = 'Innovative Finance'
 const description = 'Modern admin dashboard for agent onboarding management built with Nuxt, Shadcn Vue, and TailwindCSS.'
 
 useSeoMeta({

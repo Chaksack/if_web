@@ -8,7 +8,7 @@
         <nav>
           <ul class="flex items-center gap-6">
             <li>
-              <a href="#" class="relative block py-2 pl-3 pr-3 text-gray-900 after:absolute after:left-0 after:top-0 after:h-[3px] after:w-full after:bg-red-600">About Bank</a>
+              <NuxtLink to="/about" class="relative block py-2 pl-3 pr-3 text-gray-900 after:absolute after:left-0 after:top-0 after:h-[3px] after:w-full after:bg-red-600">About Bank</NuxtLink>
             </li>
             <li><NuxtLink to="/careers" class="block py-2 pl-3 pr-3 hover:text-gray-900">Careers</NuxtLink></li>
             <li><NuxtLink to="/help-support" class="block py-2 pl-3 pr-3 hover:text-gray-900">Help & Support</NuxtLink></li>
@@ -98,10 +98,38 @@
                 </template>
               </DropdownNav>
             </li>
-            <li><NuxtLink :class="linkClass('/credit-cards')" to="/credit-cards">Credit Cards</NuxtLink></li>
-            <li><NuxtLink :class="linkClass('/features')" to="/features">Features</NuxtLink></li>
+            <li>
+              <DropdownNav 
+                :is-active="route.path.startsWith('/savings')"
+                :base-class="'relative block pb-3 hover:text-gray-900'"
+                :active-class="'text-gray-900 after:absolute after:left-0 after:-bottom-[1px] after:h-[3px] after:w-full after:bg-red-500'"
+              >
+                <template #trigger>
+                  <span>Savings</span>
+                </template>
+                <template #content>
+                  <div class="space-y-2">
+                    <NuxtLink 
+                      v-for="category in savingsCategories" 
+                      :key="category.path"
+                      :to="category.path"
+                      class="flex items-start gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+                    >
+                      <component 
+                        :is="category.icon" 
+                        class="w-5 h-5 mt-0.5 text-gray-500"
+                      />
+                      <div>
+                        <div class="font-medium">{{ category.title }}</div>
+                        <div class="text-xs text-gray-500">{{ category.description }}</div>
+                      </div>
+                    </NuxtLink>
+                  </div>
+                </template>
+              </DropdownNav>
+            </li>
             <li><NuxtLink :class="linkClass('/news')" to="/news">News</NuxtLink></li>
-            <li><NuxtLink :class="linkClass('/account')" to="/account">My Account</NuxtLink></li>
+            <li v-if="user"><NuxtLink :class="linkClass('/account')" to="/account">My Account</NuxtLink></li>
           </ul>
         </div>
       </nav>
@@ -122,13 +150,25 @@
               </NuxtLink>
             </div>
           </li>
-          <li class="py-2"><NuxtLink class="block" to="/credit-cards">Credit Cards</NuxtLink></li>
-          <li class="py-2"><NuxtLink class="block" to="/features">Features</NuxtLink></li>
+          <li class="py-2">
+            <div class="block font-medium" to="/savings">Savings</div>
+            <div class="ml-4 mt-2 space-y-2">
+              <NuxtLink 
+                v-for="category in savingsCategories" 
+                :key="category.path"
+                :to="category.path"
+                class="block py-1 text-sm"
+              >
+                {{ category.title }}
+              </NuxtLink>
+            </div>
+          </li>
           <li class="py-2"><NuxtLink class="block" to="/news">News</NuxtLink></li>
-          <li class="py-2"><NuxtLink class="block" to="/account">My Account</NuxtLink></li>
+          <li v-if="user" class="py-2"><NuxtLink class="block" to="/account">My Account</NuxtLink></li>
           <li class="border-t mt-2 pt-2">
             <div class="text-xs text-gray-500 mb-2 font-medium">Support</div>
             <div class="ml-4 space-y-2">
+              <li class="py-1"><NuxtLink class="block text-sm" to="/about">About Bank</NuxtLink></li>
               <li class="py-1"><NuxtLink class="block text-sm" to="/help-support">Help & Support</NuxtLink></li>
               <li class="py-1"><NuxtLink class="block text-sm" to="/contact">Contact Us</NuxtLink></li>
               <li class="py-1"><NuxtLink class="block text-sm" to="/careers">Careers</NuxtLink></li>
@@ -176,7 +216,13 @@ import {
   Home, 
   Truck, 
   GraduationCap, 
-  Package 
+  Package,
+  PiggyBank,
+  Landmark,
+  Baby,
+  Target,
+  Shield,
+  FileText
 } from 'lucide-vue-next'
 
 const loanCategories = [
@@ -215,11 +261,56 @@ const loanCategories = [
     description: 'Finance equipment for business growth',
     path: '/loans/equipment',
     icon: Package
+  },
+  {
+    title: 'Apply for a Loan',
+    description: 'Start your loan application today',
+    path: '/apply-loan-guest',
+    icon: FileText
+  }
+]
+
+const savingsCategories = [
+  {
+    title: 'Regular Savings',
+    description: 'Flexible savings with instant access',
+    path: '/savings/regular',
+    icon: PiggyBank
+  },
+  {
+    title: 'Fixed Deposits',
+    description: 'Guaranteed returns with higher interest',
+    path: '/savings/fixed-deposit',
+    icon: Landmark
+  },
+  {
+    title: 'Children\'s Savings',
+    description: 'Build your child\'s financial future',
+    path: '/savings/children',
+    icon: Baby
+  },
+  {
+    title: 'Goal-Based Savings',
+    description: 'Save for specific financial goals',
+    path: '/savings/goal-based',
+    icon: Target
+  },
+  {
+    title: 'Business Savings',
+    description: 'Savings solutions for businesses',
+    path: '/savings/business',
+    icon: Building2
+  },
+  {
+    title: 'Emergency Fund',
+    description: 'Build a safety net for unexpected expenses',
+    path: '/savings/emergency',
+    icon: Shield
   }
 ]
 
 const linkClass = (path: string) => {
-  const active = route.path === path || (path === '/loans' && route.path.startsWith('/loans/'))
+  const active = route.path === path || (path === '/loans' && route.path.startsWith('/loans/')) || (path === '/savings' && route.path.startsWith('/savings/'))
   return [
     'relative block pb-3 hover:text-gray-900',
     active ? 'text-gray-900 after:absolute after:left-0 after:-bottom-[1px] after:h-[3px] after:w-full after:bg-red-500' : 'text-gray-700'

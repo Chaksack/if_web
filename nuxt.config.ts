@@ -1,13 +1,12 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
+  compatibilityDate: '2025-11-07',
+  srcDir: 'app/',
   // ...
   components: {
     dirs: [
-      // Default top-level components directory
       { path: '~/components', extensions: ['vue'] },
-      // App-scoped components directory
-      { path: '~/app/components', extensions: ['vue'] },
     ],
   },
   css: ['~/assets/css/tailwind.css'],
@@ -16,7 +15,7 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
-  modules: ['shadcn-nuxt'],
+  modules: ['shadcn-nuxt', '@nuxt/content'],
   shadcn: {
     /**
      * Prefix for all the imported component

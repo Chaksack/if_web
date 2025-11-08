@@ -4,18 +4,21 @@
       <div class="grid gap-6 md:grid-cols-2 md:items-center">
         <div>
           <h1 class="text-[28px] md:text-[44px] font-semibold leading-tight text-gray-900">
-            Gives Back To Your <br class="hidden md:block"> Community.
+            Empowering Dreams <br class="hidden md:block"> Through Microfinance
           </h1>
-          <p class="mt-3 text-[15px] text-gray-600">Making it easy for you.</p>
-          <div class="mt-6">
-            <button class="inline-flex items-center gap-2 rounded-sm bg-red-500 px-5 py-2 text-white hover:bg-red-600">
-              Find out more
-            </button>
+          <p class="mt-3 text-[15px] text-gray-600">Small loans, big impact. Supporting entrepreneurs, small businesses, and community growth across Ghana.</p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <NuxtLink to="/apply-loan-guest" class="inline-flex items-center gap-2 rounded-sm bg-red-500 px-5 py-2 text-white hover:bg-red-600">
+              Apply for Microloan
+            </NuxtLink>
+            <NuxtLink to="/about" class="inline-flex items-center gap-2 rounded-sm border border-gray-300 px-5 py-2 text-gray-700 hover:bg-gray-50">
+              Learn More
+            </NuxtLink>
           </div>
         </div>
         <div>
           <div class="aspect-[16/10] w-full rounded bg-cover bg-center shadow-sm"
-               style="background-image:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop');"></div>
+               style="background-image:url('https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1600&auto=format&fit=crop');"></div>
         </div>
       </div>
     </div>

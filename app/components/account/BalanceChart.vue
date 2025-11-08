@@ -6,14 +6,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch, defineProps } from 'vue'
-import { Chart, type ChartConfiguration, registerables } from 'chart.js'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 
-Chart.register(...registerables)
+let Chart: any = null
+let registerables: any = null
 
 const props = defineProps<{ transactions: any[] }>()
 const canvas = ref<HTMLCanvasElement | null>(null)
-let chart: Chart | null = null
+let chart: any = null
 
 function buildDataset(transactions: any[]) {
   const tx = (transactions || []).slice().reverse()
@@ -31,11 +31,18 @@ function buildDataset(transactions: any[]) {
   return { labels, balances }
 }
 
-onMounted(() => {
-  const ctx = canvas.value?.getContext('2d')
-  if (!ctx) return
-  const { labels, balances } = buildDataset(props.transactions)
-  const config: ChartConfiguration = {
+onMounted(async () => {
+  // Dynamically import Chart.js only on client side
+  try {
+    const chartModule = await import('chart.js')
+    Chart = chartModule.Chart
+    registerables = chartModule.registerables
+    Chart.register(...registerables)
+    
+    const ctx = canvas.value?.getContext('2d')
+    if (!ctx) return
+    const { labels, balances } = buildDataset(props.transactions)
+    const config: any = {
     type: 'line',
     data: {
       labels,
@@ -60,6 +67,16 @@ onMounted(() => {
   }
 
   chart = new Chart(ctx, config)
+  } catch (error) {
+    console.error('Failed to load Chart.js:', error)
+  }
+})
+
+onBeforeUnmount(() => {
+  if (chart) {
+    try { chart.destroy() } catch {}
+    chart = null
+  }
 })
 
 watch(() => props.transactions, (newVal) => {
