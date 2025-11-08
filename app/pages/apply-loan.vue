@@ -170,6 +170,84 @@
                 </li>
               </ul>
             </div>
+
+            <div 
+              @click="selectLoanType('auto')" 
+              :class="selectedLoanType === 'auto' ? 'border-primary ring-2 ring-primary' : 'border-gray-200'"
+              class="border rounded-lg p-6 cursor-pointer hover:border-primary transition-colors"
+            >
+              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Car class="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 class="text-xl font-semibold text-center mb-2">Auto Loan</h3>
+              <p class="text-gray-600 text-center mb-4">Finance your vehicle purchase with competitive rates</p>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-center gap-2">
+                  <CheckCircle2 class="w-4 h-4 text-green-600" />
+                  <span>GHS 5,000 - 150,000</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <CheckCircle2 class="w-4 h-4 text-green-600" />
+                  <span>Up to 60 months</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <CheckCircle2 class="w-4 h-4 text-green-600" />
+                  <span>New & used vehicles</span>
+                </li>
+              </ul>
+            </div>
+
+            <div 
+              @click="selectLoanType('education')" 
+              :class="selectedLoanType === 'education' ? 'border-primary ring-2 ring-primary' : 'border-gray-200'"
+              class="border rounded-lg p-6 cursor-pointer hover:border-primary transition-colors"
+            >
+              <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <GraduationCap class="w-8 h-8 text-purple-600" />
+              </div>
+              <h3 class="text-xl font-semibold text-center mb-2">Education Loan</h3>
+              <p class="text-gray-600 text-center mb-4">Invest in your education for a brighter future</p>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-center gap-2">
+                  <CheckCircle2 class="w-4 h-4 text-green-600" />
+                  <span>GHS 1,000 - 50,000</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <CheckCircle2 class="w-4 h-4 text-green-600" />
+                  <span>Flexible repayment</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <CheckCircle2 class="w-4 h-4 text-green-600" />
+                  <span>Low interest rates</span>
+                </li>
+              </ul>
+            </div>
+
+            <div 
+              @click="selectLoanType('home')" 
+              :class="selectedLoanType === 'home' ? 'border-primary ring-2 ring-primary' : 'border-gray-200'"
+              class="border rounded-lg p-6 cursor-pointer hover:border-primary transition-colors"
+            >
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Home class="w-8 h-8 text-green-600" />
+              </div>
+              <h3 class="text-xl font-semibold text-center mb-2">Home Loan</h3>
+              <p class="text-gray-600 text-center mb-4">Make homeownership dreams come true</p>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-center gap-2">
+                  <CheckCircle2 class="w-4 h-4 text-green-600" />
+                  <span>GHS 50,000 - 500,000</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <CheckCircle2 class="w-4 h-4 text-green-600" />
+                  <span>Up to 30 years</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <CheckCircle2 class="w-4 h-4 text-green-600" />
+                  <span>Competitive rates</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div class="mt-8 text-center">
@@ -515,7 +593,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { 
   Briefcase, 
   User, 
@@ -525,7 +603,10 @@ import {
   FileText,
   Upload,
   FileCheck,
-  X
+  X,
+  Car,
+  GraduationCap,
+  Home
 } from 'lucide-vue-next'
 import Button from '~/components/ui/button/Button.vue'
 
@@ -543,6 +624,17 @@ useHead({
 const currentStep = ref(1)
 const selectedLoanType = ref('')
 const isSubmitting = ref(false)
+
+// Get loan type from URL parameters
+const route = useRoute()
+const loanTypeFromQuery = route.query.type
+
+// Pre-select loan type if provided in URL
+onMounted(() => {
+  if (loanTypeFromQuery && ['business', 'personal', 'agricultural', 'emergency', 'auto', 'education', 'equipment', 'home', 'housing', 'group'].includes(loanTypeFromQuery)) {
+    selectedLoanType.value = loanTypeFromQuery
+  }
+})
 
 const application = ref({
   amount: '',
@@ -641,7 +733,13 @@ const getLoanLimits = () => {
     business: { min: 1000, max: 100000 },
     personal: { min: 500, max: 50000 },
     agricultural: { min: 2000, max: 200000 },
-    emergency: { min: 200, max: 10000 }
+    emergency: { min: 200, max: 10000 },
+    auto: { min: 5000, max: 150000 },
+    education: { min: 1000, max: 50000 },
+    equipment: { min: 2000, max: 80000 },
+    home: { min: 50000, max: 500000 },
+    housing: { min: 5000, max: 100000 },
+    group: { min: 500, max: 20000 }
   }
   return limits[selectedLoanType.value] || { min: 0, max: 0 }
 }

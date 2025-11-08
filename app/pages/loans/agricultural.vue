@@ -11,7 +11,7 @@
               From seasonal crop loans to equipment financing, we support Ghana's agricultural sector.
             </p>
             <div class="flex gap-4">
-              <NuxtLink to="/apply-loan-guest" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90">
+              <NuxtLink to="/apply-loan?type=agricultural" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90">
                 Apply Now
               </NuxtLink>
               <NuxtLink to="/contact" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-50">
@@ -127,7 +127,7 @@
       <div class="mx-auto max-w-4xl px-6 text-center">
         <h2 class="text-3xl font-bold text-white mb-4">Ready to Grow Your Agricultural Business?</h2>
         <p class="text-xl text-primary-foreground/90 mb-8">Apply for agricultural financing today and take your farming operations to the next level.</p>
-        <NuxtLink to="/apply-loan-guest" class="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-md hover:bg-gray-50 font-semibold">
+        <NuxtLink to="/apply-loan?type=agricultural" class="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-md hover:bg-gray-50 font-semibold">
           Apply for Agricultural Loan
         </NuxtLink>
       </div>

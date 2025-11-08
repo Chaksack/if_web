@@ -81,7 +81,9 @@
       </div>
 
       <div class="mt-16">
-        <Button size="lg" class="w-full md:w-auto">Apply Now</Button>
+        <NuxtLink to="/apply-loan?type=personal" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-primary hover:bg-primary/90 border border-transparent rounded-md transition-colors">
+          Apply Now
+        </NuxtLink>
       </div>
     </div>
 
@@ -90,7 +92,6 @@
 </template>
 
 <script setup>
-import { Button } from '~/components/ui/button'
 import Calculator from '~/components/loans/Calculator.vue'
 import FAQs from '~/components/loans/FAQs.vue'
 import Breadcrumb from '~/components/ui/breadcrumb/Breadcrumb.vue'

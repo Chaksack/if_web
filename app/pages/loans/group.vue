@@ -11,7 +11,7 @@
               provides access to capital with shared responsibility and collective growth.
             </p>
             <div class="flex gap-4">
-              <NuxtLink to="/apply-loan-guest" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90">
+              <NuxtLink to="/apply-loan?type=group" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90">
                 Join a Group
               </NuxtLink>
               <NuxtLink to="/contact" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-50">
@@ -162,7 +162,7 @@
         <h2 class="text-3xl font-bold text-white mb-4">Ready to Join a Business Community?</h2>
         <p class="text-xl text-primary-foreground/90 mb-8">Start your group lending journey today and grow your business with community support.</p>
         <div class="flex gap-4 justify-center">
-          <NuxtLink to="/apply-loan-guest" class="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-md hover:bg-gray-50 font-semibold">
+          <NuxtLink to="/apply-loan?type=group" class="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-md hover:bg-gray-50 font-semibold">
             Join a Group
           </NuxtLink>
           <NuxtLink to="/contact" class="inline-flex items-center gap-2 border-2 border-white text-white px-6 py-3 rounded-md hover:bg-white hover:text-primary font-semibold">
